@@ -1,23 +1,29 @@
+//header file
 #include <stdio.h>
 
-int main() {
-  int n, copy, dig, rev = 0;
+//main function starts
+int main() 
+{
+     int n, copy, dig, rev = 0;
+  
+     printf("Enter a number : ");         //Guiding user to enter a number
+     scanf("%d", &n);                     //saving a number entered by user on console to "n" integer
 
-  printf("Enter a number : ");
-  scanf("%d", &n);
+     copy = n;                            //taking backup of original integer
 
-  copy = n;
+     while (n != 0)                       //performing given operation till number becomes 0
+     {
+          dig = n % 10;                   //feachinf the last digit of a number in "dig" variable
+          rev = rev * 10 + dig;           //creating space for the degit and adding in the "rev" variable
+          n /= 10;                        //removing the last digit from main variable
+     }//while ends
 
-  while (n != 0) {
-    dig = n % 10;
-    rev = rev * 10 + dig;
-    n /= 10;
-  }
+    // if backup number is equal to reverse number it will print "palindrome number" on console else "not palindrome"
+     if (rev == copy)
+         printf("\nEntered number is palindrome");
+     else
+         printf("\nEnteredNumber is not palindrome!");
 
-  if (rev == copy)
-    printf("\nEntered number is palindrome");
-  else
-    printf("\nEnteredNumber is not palindrome!");
-
-  return 0;
-}
+     return 0;
+}//main ends
+//main function ends
